@@ -1,0 +1,13 @@
+name: writing-check
+run-name: ${{ github.actor }} checks README.md by using write-good
+on: [push]
+jobs:
+	README-grammar-check:
+		runs-on: ubuntu-latest
+		steps:
+			- uses: actions/checkout@v5
+			- uses: actions/setup-node@v4
+				with: 
+					node-version: '20'	
+			- run: npx write-good README.md
+			
